@@ -38,7 +38,24 @@ public class Hangman {
         }
     }
 
-    public void printCurrentWord(){
+    public static boolean askToPlay(){
+
+        System.out.println("Do you want to play again?");
+        Scanner scanner = new Scanner(System.in);
+        String userAnswer = scanner.next();
+        boolean answer =!userAnswer.toLowerCase().equalsIgnoreCase("yes") && !userAnswer.toLowerCase().equalsIgnoreCase("y") && !userAnswer.toLowerCase().equalsIgnoreCase("no") && !userAnswer.toLowerCase().equalsIgnoreCase("n");
+        while(answer){
+            System.out.println("Ops....I am afraid I don't understand your answer. Please type yes or no");
+            userAnswer = scanner.next();
+            answer =!userAnswer.toLowerCase().equalsIgnoreCase("yes") && !userAnswer.toLowerCase().equalsIgnoreCase("y") && !userAnswer.toLowerCase().equalsIgnoreCase("no") && !userAnswer.toLowerCase().equalsIgnoreCase("n");
+        }
+
+        if(userAnswer.equalsIgnoreCase("yes")||userAnswer.equalsIgnoreCase("y")){
+       return true; }else {return  false;}
+    }
+
+
+        public void printCurrentWord(){
         System.out.println(mSecretWord);
     }
 
